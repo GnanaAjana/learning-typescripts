@@ -51,3 +51,56 @@ printName('ajana');
 // printName(8);
 
 // it makes code clean
+
+// 3. Arrays:
+// array variable can be declared only one type or mixed types
+// if we declare with one type and give any other type, It throws error
+// and also cannot type of the variable
+ let names = ['Ajana', 'Nammalvar'];
+
+//  names.push(8);
+// names[0] = 3;
+names.push('krithvik');
+names[3] = 'Alvar';
+// names = 'test';
+
+let ages = [32, 33];
+// age.push('test');
+// age.push(true);
+
+ages.push(1);
+
+let mixed = ['Ajana', 'Nammalvar', 32, 33];
+// now it allows both string and number. It can be allowed at any positions
+mixed.push('krithvik');
+mixed.push(1);
+// mixed.push(true);
+
+// 4. Objects
+// if we declare variable as object, only we can able to change key value pair.
+// Not able to add new key-value once declared
+
+let details = {
+  name: 'Ajana',
+  age: 32,
+  isMarried: false
+};
+
+details.name = 'Nammalvar';
+details.age = 33;
+// details.isMarried = 'dd';
+// details.age = '33';
+
+// it wont allow extra key value pair
+// details.skills = 'javascript'
+
+// we can update object with key pair but its type. And also should be same initial object types
+
+details = {
+  name: 'Krithvik',
+  age: 1,
+  isMarried: false,
+  // age: 1.4  - cannot accept,
+  // skills: ['javscript']
+};
+
