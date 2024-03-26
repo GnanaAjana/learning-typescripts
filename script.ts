@@ -104,3 +104,4 @@ details = {
   // skills: ['javscript']
 };
 
+// details= [];

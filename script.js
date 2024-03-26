@@ -72,3 +72,4 @@ details = {
     // age: 1.4  - cannot accept,
     // skills: ['javscript']
 };
+// details= [];
