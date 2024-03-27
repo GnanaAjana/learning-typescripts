@@ -51,3 +51,32 @@ ninjaTwo = {
     isMarried: false,
     // skills: 'dd' // it throws as it is not declared
 };
+// 6: Dynamic (any) types
+//any declaration -  this variable can allow any type eg: bool/sting/number while declaring
+var ageOne = 32;
+ageOne = 32;
+console.log('ageOne', ageOne);
+ageOne = 'aj';
+console.log('ageOne', ageOne);
+ageOne = {
+    name: 'ajana'
+};
+console.log('ageOne', ageOne);
+// this declaration is similar to javascript
+var mixedOne = [];
+mixedOne.push(2);
+mixedOne.push('ajana');
+mixedOne.push(true);
+console.log('mixedOne', mixedOne);
+var ninjasOne;
+ninjasOne = {
+    name: 'ajana',
+    age: 23
+};
+console.log('ninjasOne', ninjasOne);
+ninjasOne = {
+    name: 23,
+    age: 'ajana'
+};
+console.log('ninjasOne', ninjasOne);
+// mostly dont use this, unless it id needed.
