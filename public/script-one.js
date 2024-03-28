@@ -1,3 +1,4 @@
+"use strict";
 // 5. Explict types:
 // previously we declare and assign value and sets its type.
 // we can explictly specify its type like below
