@@ -58,3 +58,23 @@ let divide  = (a: number, b: number, c: number | string = 10): number => {
 
 let divideResult = divide(25, 5);
 console.log('divide result:', result);
+
+// #9: type alias
+// sometimes while declaring function, for params we might specify types.
+// For reuse params type, we can declare type once and use it function for params
+type StringOrNum = String | Number;
+type ObjectWithName = { name: StringOrNum, uid: String };
+
+// const logDetails = (uid: String | Number, item: String) => {
+//  Instead of above code , we can declare type and resuse it in different function.
+const logDetails = (uid: StringOrNum, item: String) => {
+  console.log(`${item} has a uid of ${uid}`);
+}
+
+const greets = (user: ObjectWithName ) => {
+  console.log(`${user.name} says hello`);
+};
+
+const greetsAgain = (user: ObjectWithName ) => {
+  console.log(`${user.name} says hello`);
+};

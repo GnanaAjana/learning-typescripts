@@ -50,3 +50,14 @@ var divide = function (a, b, c) {
 };
 var divideResult = divide(25, 5);
 console.log('divide result:', result);
+// const logDetails = (uid: String | Number, item: String) => {
+//  Instead of above code , we can declare type and resuse it in different function.
+var logDetails = function (uid, item) {
+    console.log("".concat(item, " has a uid of ").concat(uid));
+};
+var greets = function (user) {
+    console.log("".concat(user.name, " says hello"));
+};
+var greetsAgain = function (user) {
+    console.log("".concat(user.name, " says hello"));
+};
