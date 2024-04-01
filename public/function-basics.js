@@ -61,3 +61,36 @@ var greets = function (user) {
 var greetsAgain = function (user) {
     console.log("".concat(user.name, " says hello"));
 };
+// #function Signature
+// code below is function declaration
+// let greetTest: Function;
+// above one is takes empty parameter and returns void like this () => void
+// lets see function signature examples
+// #example 1
+var greetTest;
+// above one specifies 'greetTest' takes 2 params and returns nothing.
+// like only need to call, if we miss anything will throw error
+// instead a , b we can specify any name, bcoz its just definition
+greetTest = function (name, greetings) {
+    console.log("".concat(name, " says ").concat(greetings));
+};
+// if we changes any of above params will throw error
+// #example 2
+var calc;
+// if we miss else part throws error bcoz it must return number
+// or we can also specify like comment also. Anyhow it gonna return number
+// calc = (numOne: number, numTwo: number, action: string): number => {
+calc = function (numOne, numTwo, action) {
+    if (action === 'add') {
+        return numOne + numTwo;
+    }
+    else {
+        return numOne - numTwo;
+    }
+};
+// #example 3
+// we can also define obj as params and return nothing
+var logDetailsFn;
+logDetailsFn = function (ninja) {
+    console.log("".concat(ninja.name, " is ").concat(ninja.age, " years old."));
+};

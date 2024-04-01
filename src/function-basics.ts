@@ -78,3 +78,47 @@ const greets = (user: ObjectWithName ) => {
 const greetsAgain = (user: ObjectWithName ) => {
   console.log(`${user.name} says hello`);
 };
+
+// #function Signature
+// code below is function declaration
+// let greetTest: Function;
+// above one is takes empty parameter and returns void like this () => void
+
+// lets see function signature examples
+// #example 1
+
+let greetTest: (a: string, b: string) => void;
+// above one specifies 'greetTest' takes 2 params and returns nothing.
+// like only need to call, if we miss anything will throw error
+// instead a , b we can specify any name, bcoz its just definition
+
+greetTest = (name: string, greetings: string) => {
+  console.log(`${name} says ${greetings}`);
+};
+
+// if we changes any of above params will throw error
+
+// #example 2
+
+let calc: (a: number, b: number, c: string) => number;
+
+// if we miss else part throws error bcoz it must return number
+// or we can also specify like comment also. Anyhow it gonna return number
+// calc = (numOne: number, numTwo: number, action: string): number => {
+calc = (numOne: number, numTwo: number, action: string) => {
+  if (action === 'add') {
+    return numOne + numTwo;
+  } else {
+    return numOne - numTwo
+  }
+}
+
+// #example 3
+// we can also define obj as params and return nothing
+let logDetailsFn: (obj: { name: string, age: number }) => void;
+
+type person = { name: string, age: number };
+
+logDetailsFn = (ninja: person) => {
+  console.log(`${ninja.name} is ${ninja.age} years old.`);
+};
