@@ -35,23 +35,35 @@ const form = document.querySelector('.new-item-form') as HTMLFormElement;
 // #12 Classes
 // like javascript we can use classes in typescript
 
+// #14 public, private and readonly
+
 class Invoice {
   // it will throw error because we did't initialize values,
   // becuase each class will have different values.
 
   // all of the classes are public if we did't specify property
-  client: string;
-  details: string;
-  public amount: number; // we can specify like this also
+  // readonly client: string; // inside class itself it can be readonly we cannot change value. it throws errot
+  // private details: string; // we cannot access by outside but it access inside the class 
+  // public amount: number; // we can specify like this also. it can be access and modify outside and inside the classes
 
   // we can initialise inside constructor, once this done above thrown will be gone
-  constructor(c: string, d: string, a: number) {
-    this.client = c;
-    this.details = d;
-    this.amount = a;
-  }
+  // constructor(c: string, d: string, a: number) {
+  //   this.client = c;
+  //   this.details = d;
+  //   this.amount = a;
+  // }
+
+  // we can define inshortend like below
+
+  constructor(
+    // below if we take away readonly, private and public, then throws error
+    readonly client: string,
+    private details: string,
+    public amount: number
+  ) {}
 
   format() {
+    // this.client = 'test'; // inside class also cannot be modify.
     return `${this.client} owes Rs. ${this.amount} for ${this.details}`;
   }
 }
@@ -72,10 +84,17 @@ let invoices: Invoice[] = []; // instead of string we use Invoice class
 invoices.push(invOne);
 invoices.push(invTwo);
 
-invOne.client = 'yoshi';
+// invOne.client = 'yoshi'; // it throws error because it is readonly mode cannot be changed
 invTwo.amount = 800;
 
 console.log(invoices);
+// we can use this class initiase like below
+
+invoices.forEach(inv => {
+  // console.log(inv.client, inv.amount, inv.details); //  inv.details -> throws error
+  console.log(inv.client, inv.amount);
+  console.log(inv.format()); 
+});
 
 // inputs
 const type = document.querySelector('#type') as HTMLSelectElement;
