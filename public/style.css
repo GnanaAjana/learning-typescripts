@@ -62,3 +62,7 @@ button{
   min-width: 80px;
   border-radius: 4px;
 }
+.link-check {
+  display: flex;
+  justify-content: center;
+}

@@ -32,6 +32,51 @@ const form = document.querySelector('.new-item-form') as HTMLFormElement;
 // now form can be able to access its property
 // console.log(form.children);
 
+// #12 Classes
+// like javascript we can use classes in typescript
+
+class Invoice {
+  // it will throw error because we did't initialize values,
+  // becuase each class will have different values.
+
+  // all of the classes are public if we did't specify property
+  client: string;
+  details: string;
+  public amount: number; // we can specify like this also
+
+  // we can initialise inside constructor, once this done above thrown will be gone
+  constructor(c: string, d: string, a: number) {
+    this.client = c;
+    this.details = d;
+    this.amount = a;
+  }
+
+  format() {
+    return `${this.client} owes Rs. ${this.amount} for ${this.details}`;
+  }
+}
+
+// we can create object using above class
+const invOne = new Invoice('Ajana', 'work on the mario website', 300);
+const invTwo = new Invoice('Nammalvar', 'work on the Nammalvar website', 450);
+
+console.log(invOne); // print invOne project
+console.log(invTwo); // print invTwo project
+// we can use this as object in array
+
+// let invoices: string[] = []; // this will allow only strings
+// to allow only invoice class allowed, we should use like below code
+
+let invoices: Invoice[] = []; // instead of string we use Invoice class
+// invoices.push('hello'); // this code ll throw because it takes only invoice object
+invoices.push(invOne);
+invoices.push(invTwo);
+
+invOne.client = 'yoshi';
+invTwo.amount = 800;
+
+console.log(invoices);
+
 // inputs
 const type = document.querySelector('#type') as HTMLSelectElement;
 const toForm = document.querySelector('#tofrom') as HTMLInputElement;
