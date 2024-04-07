@@ -1,3 +1,6 @@
+
+import { Invoice } from './classes/Invoice.js';
+
 // # The DOM & type casting
 // Just like normal javascript. it also works same way
 
@@ -37,36 +40,36 @@ const form = document.querySelector('.new-item-form') as HTMLFormElement;
 
 // #14 public, private and readonly
 
-class Invoice {
-  // it will throw error because we did't initialize values,
-  // becuase each class will have different values.
+// class Invoice {
+//   // it will throw error because we did't initialize values,
+//   // becuase each class will have different values.
 
-  // all of the classes are public if we did't specify property
-  // readonly client: string; // inside class itself it can be readonly we cannot change value. it throws errot
-  // private details: string; // we cannot access by outside but it access inside the class 
-  // public amount: number; // we can specify like this also. it can be access and modify outside and inside the classes
+//   // all of the classes are public if we did't specify property
+//   // readonly client: string; // inside class itself it can be readonly we cannot change value. it throws errot
+//   // private details: string; // we cannot access by outside but it access inside the class 
+//   // public amount: number; // we can specify like this also. it can be access and modify outside and inside the classes
 
-  // we can initialise inside constructor, once this done above thrown will be gone
-  // constructor(c: string, d: string, a: number) {
-  //   this.client = c;
-  //   this.details = d;
-  //   this.amount = a;
-  // }
+//   // we can initialise inside constructor, once this done above thrown will be gone
+//   // constructor(c: string, d: string, a: number) {
+//   //   this.client = c;
+//   //   this.details = d;
+//   //   this.amount = a;
+//   // }
 
-  // we can define inshortend like below
+//   // we can define inshortend like below
 
-  constructor(
-    // below if we take away readonly, private and public, then throws error
-    readonly client: string,
-    private details: string,
-    public amount: number
-  ) {}
+//   constructor(
+//     // below if we take away readonly, private and public, then throws error
+//     readonly client: string,
+//     private details: string,
+//     public amount: number
+//   ) {}
 
-  format() {
-    // this.client = 'test'; // inside class also cannot be modify.
-    return `${this.client} owes Rs. ${this.amount} for ${this.details}`;
-  }
-}
+//   format() {
+//     // this.client = 'test'; // inside class also cannot be modify.
+//     return `${this.client} owes Rs. ${this.amount} for ${this.details}`;
+//   }
+// }
 
 // we can create object using above class
 const invOne = new Invoice('Ajana', 'work on the mario website', 300);
