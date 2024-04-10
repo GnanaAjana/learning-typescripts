@@ -1,3 +1,5 @@
+import { HasFormatter } from '../interfaces/HasFormatter.js';
+
 // #14. Module
 
 // Like es6 typescript support module
@@ -9,13 +11,20 @@
 // even though it is maintain as separate module but it request as indivial file
 // in order to avoid multiple request we can use webpack
 
-export class Invoice {
+// 16: Interfaces with classes
+// implements interface into class like below.
+// as specified in interface HasFormatter - format returns string in below classes
+
+export class Invoice implements HasFormatter {
   constructor(
     readonly client: string,
     private details: string,
     public amount: number
   ) {}
 
+  // if we did't return string it will throw error
+  // if we also did't have format method also classes will throw error
+  // because it must have Hasformatter interface
   format() {
     // this.client = 'test'; // inside class also cannot be modify.
     return `${this.client} owes Rs. ${this.amount} for ${this.details}`;
