@@ -137,7 +137,7 @@ form.addEventListener('submit', (e: Event) => {
     // detailsList.value,
     // amount.valueAsNumber // in case if we knew return must be number we can use valueAsNumber.
     // usually log will convert as string. but here we specify as number. so it convers as number
-  );
+  );    
 
   // we can check in browser console now amount will be convert as number. So it will be looked like blue color
 });

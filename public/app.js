@@ -1,5 +1,13 @@
 import { Invoice } from './classes/Invoice.js';
-import './interfaces/person.js';
+import { Payment } from './classes/Payment.js';
+let docOne;
+let docTwo;
+// docOne = new Invoice('nammalvar', 'web work', 250);
+// docTwo = new Payment('krithvik', 'plumbing work', 200);
+// let docs: HasFormatter[] = [];
+// docs.push(docOne);
+// docs.push(docTwo);
+// console.log('docs', docs);
 // # The DOM & type casting
 // Just like normal javascript. it also works same way
 // but below code throws error while accessing its property.
@@ -53,26 +61,26 @@ const form = document.querySelector('.new-item-form');
 //   }
 // }
 // we can create object using above class
-const invOne = new Invoice('Ajana', 'work on the mario website', 300);
-const invTwo = new Invoice('Nammalvar', 'work on the Nammalvar website', 450);
-console.log(invOne); // print invOne project
-console.log(invTwo); // print invTwo project
+// const invOne = new Invoice('Ajana', 'work on the mario website', 300);
+// const invTwo = new Invoice('Nammalvar', 'work on the Nammalvar website', 450);
+// console.log(invOne); // print invOne project
+// console.log(invTwo); // print invTwo project
 // we can use this as object in array
 // let invoices: string[] = []; // this will allow only strings
 // to allow only invoice class allowed, we should use like below code
 let invoices = []; // instead of string we use Invoice class
 // invoices.push('hello'); // this code ll throw because it takes only invoice object
-invoices.push(invOne);
-invoices.push(invTwo);
+// invoices.push(invOne);
+// invoices.push(invTwo);
 // invOne.client = 'yoshi'; // it throws error because it is readonly mode cannot be changed
-invTwo.amount = 800;
-console.log(invoices);
+// invTwo.amount = 800;
+// console.log(invoices);
 // we can use this class initiase like below
-invoices.forEach(inv => {
-    // console.log(inv.client, inv.amount, inv.details); //  inv.details -> throws error
-    console.log(inv.client, inv.amount);
-    console.log(inv.format());
-});
+// invoices.forEach(inv => {
+//   // console.log(inv.client, inv.amount, inv.details); //  inv.details -> throws error
+//   console.log(inv.client, inv.amount);
+//   console.log(inv.format()); 
+// });
 // inputs
 const type = document.querySelector('#type');
 const toForm = document.querySelector('#tofrom');
@@ -80,7 +88,19 @@ const detailsList = document.querySelector('#details');
 const amount = document.querySelector('#amount');
 form.addEventListener('submit', (e) => {
     e.preventDefault();
-    console.log(type.value, toForm.value, detailsList.value, amount.valueAsNumber // in case if we knew return must be number we can use valueAsNumber.
+    let doc;
+    if (type.value === 'invoice') {
+        doc = new Invoice(toForm.value, detailsList.value, amount.valueAsNumber);
+    }
+    else {
+        doc = new Payment(toForm.value, detailsList.value, amount.valueAsNumber);
+    }
+    console.log(doc
+    // instead of below we can directly
+    // type.value,
+    // toForm.value,
+    // detailsList.value,
+    // amount.valueAsNumber // in case if we knew return must be number we can use valueAsNumber.
     // usually log will convert as string. but here we specify as number. so it convers as number
     );
     // we can check in browser console now amount will be convert as number. So it will be looked like blue color
