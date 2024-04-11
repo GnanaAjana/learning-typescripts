@@ -1,5 +1,6 @@
 
 import { Invoice } from './classes/Invoice.js';
+import { ListTemplate } from './classes/ListTemplate.js';
 import { Payment } from './classes/Payment.js';
 import { HasFormatter } from './interfaces/HasFormatter.js';
 
@@ -119,6 +120,10 @@ const toForm = document.querySelector('#tofrom') as HTMLInputElement;
 const detailsList = document.querySelector('#details') as HTMLInputElement;
 const amount = document.querySelector('#amount') as HTMLInputElement;
 
+// list template instance
+const ul = document.querySelector('ul')!;
+const list = new ListTemplate(ul);
+
 form.addEventListener('submit', (e: Event) => {
   e.preventDefault();
 
@@ -130,14 +135,16 @@ form.addEventListener('submit', (e: Event) => {
     doc = new Payment(toForm.value, detailsList.value, amount.valueAsNumber)
   }
 
-  console.log(doc
-    // instead of below we can directly
-    // type.value,
-    // toForm.value,
-    // detailsList.value,
-    // amount.valueAsNumber // in case if we knew return must be number we can use valueAsNumber.
-    // usually log will convert as string. but here we specify as number. so it convers as number
-  );    
+  list.render(doc, type.value, 'end');
+
+  // console.log(doc
+  //   // instead of below we can directly
+  //   // type.value,
+  //   // toForm.value,
+  //   // detailsList.value,
+  //   // amount.valueAsNumber // in case if we knew return must be number we can use valueAsNumber.
+  //   // usually log will convert as string. but here we specify as number. so it convers as number
+  // );    
 
   // we can check in browser console now amount will be convert as number. So it will be looked like blue color
 });
